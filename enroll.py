@@ -4,6 +4,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
+classes = []
+response = ''
+print('Please input the class codes of the classes you want and type done to stop.')
+while response != 'done':
+    response = input('Class code: ')
+    classes.append(response)
 username = input('Username: ')
 password = input('Password: ')
 
@@ -14,9 +20,24 @@ driver.get("http://www.my.fsu.edu")
 driver.find_element_by_id('username').send_keys(username)
 driver.find_element_by_id('password').send_keys(password)
 driver.find_element_by_id('fsu-login-button').click()
+while True:
+    try:
+        wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div[3]/div[1]/div/div[2]/div[1]/div/div[2]/div/div[1]/ul/li[2]/a/div'))).click()
+    except:
+        print('Invalid username or password.')
+        username = input('Username: ')
+        password = input('Password: ')
+        user = driver.find_element_by_id('username')
+        user.clear()
+        user.send_keys(username)
+        driver.find_element_by_id('password').send_keys(password)
+        driver.find_element_by_id('fsu-login-button').click()
+        continue
+    else:
+        break
+
 
 #Click on student center
-wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div[3]/div[1]/div/div[2]/div[1]/div/div[2]/div/div[1]/ul/li[2]/a/div'))).click()
 wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div[3]/div[1]/div/div[2]/div[1]/div/div[2]/div/div[3]/div[1]/div/div[1]/div[2]/div/a/img'))).click()
 
 #Choose spring 2019
