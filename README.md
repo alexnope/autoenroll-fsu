@@ -1,4 +1,5 @@
 # autoenroll-fsu
+Required library - selenium, geckodriver
 Enroll for FSU classes for me
 How to use script:
 The program will prompt you for the class numbers of the classes you want.
