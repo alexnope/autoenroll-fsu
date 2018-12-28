@@ -6,9 +6,11 @@ import time
 
 classes = []
 response = ''
-print('Please input the class codes of the classes you want and type done to stop.')
-while response != 'done':
+print('Please input the class codes of the classes you want and type stop to stop.')
+while True:
     response = input('Class code: ')
+    if response == 'done':
+        break
     classes.append(response)
 username = input('Username: ')
 password = input('Password: ')
@@ -49,12 +51,11 @@ wait.until(EC.element_to_be_clickable((By.ID,'DERIVED_SSS_SCT_SSR_PB_GO'))).clic
 
 #370,1816,1842
 #Searches for the class nbr to add to your cart ADD AN OPTION TO make sure if class isn't repeated
-classnbr = '1817'
-wait.until(EC.presence_of_element_located((By.ID,'DERIVED_REGFRM1_CLASS_NBR'))).send_keys(classnbr)
-wait.until(EC.element_to_be_clickable((By.ID,'DERIVED_REGFRM1_SSR_PB_ADDTOLIST2$9$'))).click()
-
-#Click on next to add to cart
-wait.until(EC.element_to_be_clickable((By.XPATH,'/html/body/form/div[5]/table/tbody/tr/td/div/table/tbody/tr[9]/td[2]/div/table/tbody/tr[2]/td/table/tbody/tr[2]/td[3]/div/a'))).click()
+for classnbr in classes:
+    wait.until(EC.presence_of_element_located((By.ID,'DERIVED_REGFRM1_CLASS_NBR'))).send_keys(classnbr)
+    wait.until(EC.element_to_be_clickable((By.ID,'DERIVED_REGFRM1_SSR_PB_ADDTOLIST2$9$'))).click()
+    #Click on next to add to cart
+    wait.until(EC.element_to_be_clickable((By.XPATH,'/html/body/form/div[5]/table/tbody/tr/td/div/table/tbody/tr[9]/td[2]/div/table/tbody/tr[2]/td/table/tbody/tr[2]/td[3]/div/a'))).click()
 
 while True:
     #click on proceed step 2 or 3
