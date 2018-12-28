@@ -12,6 +12,7 @@ while True:
     if response == 'done':
         break
     classes.append(response)
+
 username = input('Username: ')
 password = input('Password: ')
 
