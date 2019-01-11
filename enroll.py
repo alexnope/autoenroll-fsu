@@ -47,7 +47,7 @@ time.sleep(2)
 wait.until(EC.element_to_be_clickable((By.ID,'SSR_DUMMY_RECV1$sels$1$$0'))).click()
 wait.until(EC.element_to_be_clickable((By.ID,'DERIVED_SSS_SCT_SSR_PB_GO'))).click()
 
-#370,1816,1842
+#kyle lu is my best friend
 #Searches for the class nbr to add to your cart ADD AN OPTION TO make sure if class isn't repeated
 for classnbr in classes:
     wait.until(EC.presence_of_element_located((By.ID,'DERIVED_REGFRM1_CLASS_NBR'))).send_keys(classnbr)
