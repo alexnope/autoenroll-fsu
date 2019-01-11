@@ -9,7 +9,7 @@ response = ''
 print('Please input the class codes of the classes you want and type stop to stop.')
 while True:
     response = input('Class code: ')
-    if response == 'done':
+    if response == 'stop':
         break
     classes.append(response)
 
@@ -25,7 +25,7 @@ driver.find_element_by_id('password').send_keys(password)
 driver.find_element_by_id('fsu-login-button').click()
 while True:
     try:
-        wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div[3]/div[1]/div/div[2]/div[1]/div/div[2]/div/div[1]/ul/li[2]/a/div'))).click()
+        wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kgoui_Rcontent_I0_Rcolumns1_I0_Rcontent_I0_Rtabs0_I1"]/div/div/div[3]/a[2]'))).click()
     except:
         print('Invalid username or password.')
         username = input('Username: ')
@@ -39,9 +39,6 @@ while True:
     else:
         break
 
-
-#Click on student center
-wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div[3]/div[1]/div/div[2]/div[1]/div/div[2]/div/div[3]/div[1]/div/div[1]/div[2]/div/a/img'))).click()
 
 #Choose spring 2019
 iframe = wait.until(EC.presence_of_element_located((By.TAG_NAME,'iframe')))
