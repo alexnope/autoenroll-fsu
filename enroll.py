@@ -25,7 +25,7 @@ driver.find_element_by_id('password').send_keys(password)
 driver.find_element_by_id('fsu-login-button').click()
 while True:
     try:
-        wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kgoui_Rcontent_I0_Rcolumns1_I0_Rcontent_I0_Rtabs0_I1"]/div/div/div[3]/a[2]'))).click()
+        wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div[3]/div[1]/div[2]/div/div[2]/div[1]/div/div[2]/div/div[1]/ul/li[2]/a/div'))).click()
     except:
         print('Invalid username or password.')
         username = input('Username: ')
@@ -38,13 +38,13 @@ while True:
         continue
     else:
         break
-
+wait.until(EC.element_to_be_clickable((By.XPATH,'/html/body/div/div[3]/div[1]/div[2]/div/div[2]/div[1]/div/div[2]/div/div[3]/div/div[1]/div/div[1]/div[2]/div/a/img'))).click()
 
 #Choose spring 2019
 iframe = wait.until(EC.presence_of_element_located((By.TAG_NAME,'iframe')))
 driver.switch_to.frame(iframe)
 time.sleep(2)
-wait.until(EC.element_to_be_clickable((By.ID,'SSR_DUMMY_RECV1$sels$1$$0'))).click()
+wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="SSR_DUMMY_RECV1$sels$2$$0"]'))).click()
 wait.until(EC.element_to_be_clickable((By.ID,'DERIVED_SSS_SCT_SSR_PB_GO'))).click()
 
 #kyle lu is my best friend
@@ -65,4 +65,3 @@ while True:
         wait.until(EC.element_to_be_clickable((By.ID, 'win0divDERIVED_REGFRM1_SSR_LINK_STARTOVER'))).click()
     except:
         break
-
