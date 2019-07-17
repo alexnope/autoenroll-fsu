@@ -1,4 +1,4 @@
-# autoenroll-fsu (OUTDATED DUE TO NEW FSU INTERFACE)
+# autoenroll-fsu
 Required library - selenium, geckodriver
 Enroll for FSU classes for me
 How to use script:
